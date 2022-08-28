@@ -20,7 +20,8 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "one"){
                 composable("one"){ Ekran1(nav = {navController.navigate("two")} ) }
                 composable("two"){ Ekran2(nav = {navController.navigate("three")}) }
-                composable("three"){ Ekran3(nav = {navController.navigate("one")}) }
+                composable("three"){ Ekran3(nav = {navController.navigate("four")}) }
+                composable("four"){ Ekran3(nav = {navController.navigate("one")}) }
             }
         }
     }
@@ -43,6 +44,13 @@ fun Ekran2(nav:()->Unit){
 fun Ekran3(nav:()->Unit){
     Column{
         Text("Поиск")
+        Button(onClick = nav) {}
+    }
+}
+@Composable
+fun Ekran4(nav:()->Unit){
+    Column{
+        Text("sfefw")
         Button(onClick = nav) {}
     }
 }
